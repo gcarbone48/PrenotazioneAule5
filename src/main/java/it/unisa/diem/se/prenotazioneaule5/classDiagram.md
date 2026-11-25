@@ -68,6 +68,28 @@ classDiagram
         ALTRO
     }
 
+
+
+    class Archivio{
+        -List~Aula~ aule
+        -List~Docente~ docenti
+        -List~Prenotazione~ prenotazioni
+        +Archivio()
+        +aggiungiAula(Aula aula) void
+        +rimuoviAula(String idAula) void
+        +trovaAulaPerId(String id) Aula
+        +aggiungiDocente(Docente docente) void
+        +rimuoviDocente(String email) void
+        +trovaDocentePerEmail(String email) Docente
+        +aggiungiPrenotazioneSingola(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate data, LocalTime oraInizio, LocalTime oraFine) void
+        +aggiungiPrenotazioneRicorrente(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizioRico, LocalDate dataFineRico, LocalTime oraInizio, LocalTime oraFine, String idSerie) void
+        +cercaAuleFiltro(String criterio, String valore) List~Aula~
+        +cercaDocenti(String query) List~Docente~
+        +getAule() List~Aula~
+        +getDocenti() List~Docente~
+        +getPrenotazioni() List~Prenotazione~
+    }
+
     Prenotazione "0..*" --> "1" Aula : aula             %% ogni singola Prenotazione è associata a esattamente 1 
                                                            aula e 1 docente responsabile.
     Prenotazione "0..*" --> "1" Docente : docente       %% una stessa Aula (o Docente) può essere associata a zero
