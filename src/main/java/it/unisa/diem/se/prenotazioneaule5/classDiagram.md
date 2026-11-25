@@ -59,7 +59,7 @@ classDiagram
         +getIdSerie() String
     }
 
-    class TipoAttività{
+    class TipoAttivita{
         <<enumeration>>
         LEZIONE
         SEMINARIO
@@ -69,7 +69,9 @@ classDiagram
     }
 
     Prenotazione "0..*" --> "1" Aula : aula             %% ogni singola Prenotazione è associata a esattamente 1 
-                                                           aula e 1 docente responsabile.
+                                                        %%   aula e 1 docente responsabile.
     Prenotazione "0..*" --> "1" Docente : docente       %% una stessa Aula (o Docente) può essere associata a zero
-                                                           o più prenotazioni nell'archivio.
-    Prenotazione --> "1" TipoAttivita : tipo
+                                                        %%   o più prenotazioni nell'archivio.
+    Prenotazione --> "1" TipoAttivita : attivita
+
+```
