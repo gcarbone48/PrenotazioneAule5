@@ -1,7 +1,8 @@
 ```mermaid
 classDiagram
     class Aula{
-        - String id     %% codice identificativo univoco
+        - String id
+        %% codice identificativo univoco
         - String nome
         - String edificio
         - String piano
@@ -11,7 +12,8 @@ classDiagram
     }
 
     class Docente{
-        - String email      %% univoca
+        - String email
+        %% univoca      
         - String nome
         - String cognome
 
@@ -28,8 +30,8 @@ classDiagram
         - LocalTime oraInizio
         - LocalTime oraFine
         - boolean isRicorrente
-        - String idSerie        %% codice interno x controlli nostri
-
+        - String idSerie        
+        %% codice interno x controlli nostri
         
     }
 
