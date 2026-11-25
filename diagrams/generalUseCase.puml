@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+
+actor "Operatore" as O
+
+rectangle "Sistema di gestione\n delle prenotazioni" {
+    package "Gestione Aule" as GA
+    package "Gestione Docenti" as GD
+    package "Gestione Prenotazioni" as GP
+}
+
+O --> GA
+O --> GD
+O --> GP
+
+@enduml

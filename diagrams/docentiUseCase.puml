@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+
+
+actor "Operatore" as O
+
+rectangle "Gestione Docenti" {
+
+    usecase "UC7 - Aggiunta Docente" as UC7
+    usecase "UC8 - Modifica Docente" as UC8
+    usecase "UC9 - Rimozione Docente" as UC9
+    usecase "UC10 - Visualizzazione Lista Docenti" as UC10
+    usecase "UC11 - Ricerca in Lista Docenti" as UC11
+
+}
+
+O --> UC7
+O --> UC8
+O --> UC9
+O --> UC10
+O --> UC11
+
+UC11 ..> UC10 : <<extend>>
+
+@enduml

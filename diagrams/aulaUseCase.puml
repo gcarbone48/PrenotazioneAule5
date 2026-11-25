@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+
+actor "Operatore" as O
+
+rectangle "Gestione Aule" {
+
+    usecase "UC1 - Aggiunta Aula" as UC1
+    usecase "UC2 - Modifica Aula" as UC2
+    usecase "UC3 - Rimozione Aula" as UC3
+    usecase "UC4 - Visualizzazione Lista Aule" as UC4
+    usecase "UC5 - Ricerca Aule Filtrata" as UC5
+    usecase "UC6 - Ricerca Aule Disponibili" as UC6
+
+}
+
+O --> UC1
+O --> UC2
+O --> UC3
+O --> UC4
+O --> UC5
+O --> UC6
+
+UC5 ..> UC4 : <<extend>>
+UC6 ..> UC4 : <<extend>>
+
+@enduml
