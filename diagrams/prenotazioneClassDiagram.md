@@ -1,3 +1,5 @@
+```mermaid
+classDiagram
  class Prenotazione{
         - Aula aula
         - Docente docente
@@ -35,3 +37,4 @@
         +setIdSerie(String idSerie) void
 
     }
+```
