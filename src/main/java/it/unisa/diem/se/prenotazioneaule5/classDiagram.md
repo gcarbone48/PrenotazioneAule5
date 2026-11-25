@@ -18,6 +18,9 @@ classDiagram
         +setPiano(String piano) void
         +getCapienza() int
         +setCapienza(int capienza) void
+        +equals(Object o)
+        +hashCode()
+        +compareTo(Aula a)
     }
 
     class Docente{
@@ -32,6 +35,9 @@ classDiagram
         +setNome(String nome) void
         +getCognome() String
         +setCognome(String cognome) void
+        +equals(Object o)
+        +hashCode()
+        +compareTo(Docente d)
     }
 
     class Prenotazione{
@@ -57,6 +63,9 @@ classDiagram
         +getOraFine() LocalTime
         +isRicorrente() boolean
         +getIdSerie() String
+        +equals(Object o)
+        +hashCode()
+        +compareTo(Prenotazione p)
     }
 
     class TipoAttività{
