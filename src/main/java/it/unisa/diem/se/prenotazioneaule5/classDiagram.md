@@ -6,12 +6,32 @@ classDiagram
         - String edificio
         - String piano
         - int capienza
+
+        +Aula(String id, String nome, String edificio, String piano, int capienza)
+        +getId() String
+        +setId(String id) void
+        +getNome() String
+        +setNome(String nome) void
+        +getEdificio() String
+        +setEdificio(String edificio) void
+        +getPiano() String
+        +setPiano(String piano) void
+        +getCapienza() int
+        +setCapienza(int capienza) void
     }
 
     class Docente{
         - String email      %% univoca
         - String nome
         - String cognome
+
+        +Docente(String email, String nome, String cognome)
+        +getEmail() String
+        +setEmail(String email) void
+        +getNome() String
+        +setNome(String nome) void
+        +getCognome() String
+        +setCognome(String cognome) void
     }
 
     class Prenotazione{
@@ -25,6 +45,18 @@ classDiagram
         - LocalTime oraFine
         - boolean isRicorrente
         - String idSerie        %% codice interno x controlli nostri
+
+        +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean isRicorrente, String idSerie)
+        +getAula() Aula
+        +getDocente() Docente
+        +getAttivita() TipoAttivita
+        +getNomeAttivita() String
+        +getDataInizio() LocalDate
+        +getDataFine() LocalDate
+        +getOraInizio() LocalTime
+        +getOraFine() LocalTime
+        +isRicorrente() boolean
+        +getIdSerie() String
     }
 
     class TipoAttività{
