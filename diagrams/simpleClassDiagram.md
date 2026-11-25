@@ -21,16 +21,16 @@ classDiagram
     }
 
     class Prenotazione{
-        - Aula aula
-        - Docente docente
-        - TipoAttivita attivita
-        - String nomeAttivita
-        - LocalDate dataInizio
-        - LocalDate dataFine
-        - LocalTime oraInizio
-        - LocalTime oraFine
-        - boolean isRicorrente
-        - String idSerie        
+        - final Aula aula
+        - final Docente docente
+        - final TipoAttivita attivita
+        - final String nomeAttivita
+        - final LocalDate dataInizio
+        - final LocalDate dataFine
+        - final LocalTime oraInizio
+        - final LocalTime oraFine
+        - final boolean isRicorrente
+        - final String idSerie        
         %% codice interno x controlli nostri
         
     }
