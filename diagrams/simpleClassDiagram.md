@@ -1,5 +1,5 @@
 ```mermaid
-simpleClassDiagram
+classDiagram
     class Aula{
         - String id
         %% codice identificativo univoco
