@@ -27,5 +27,6 @@ classDiagram
         + compareTo(Docente altro) int
         + equals(Object o) boolean
         + hashCode() int
+        + toString() String
     }
 ```

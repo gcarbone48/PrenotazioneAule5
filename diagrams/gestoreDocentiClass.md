@@ -37,6 +37,8 @@ classDiagram
         %%restituisce una lista ordinata di docenti la cui mail 
         %%contiene la stringa passata
         + ricercaEmail (String email) List~Docente~
+
+        + toString() String
     }
 
     GestoreDocenti "1" --> "*" Docente

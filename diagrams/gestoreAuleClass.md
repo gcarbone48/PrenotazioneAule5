@@ -30,6 +30,7 @@ classDiagram
         %% restituisce una lista di aule filtrate per capienza minima
         + filtraPerCapienzaMinima(int capienza) List~Aula~
 
+        + toString() String
     }
 
     class EsitoAula {

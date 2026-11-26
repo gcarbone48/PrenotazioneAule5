@@ -42,7 +42,7 @@ classDiagram
         + compareTo(Prenotazione altra) int
         + equals(Object o) boolean
         + hashCode() int
-
+        + toString()
         
 
     }

@@ -25,7 +25,7 @@ classDiagram
         + setEdificio(String edificio) void
         + setPiano(String piano) void
         + setCapienza(int capienza) void      
-
+        + toString() String
 
         + equals(Object o) boolean
         + hashCode() int
