@@ -22,6 +22,10 @@ classDiagram
         + getCognome() String
         + setEmail(String email) void
         + setNome(String nome) void
-        + setCognome(String cognome) void        
+        + setCognome(String cognome) void       
+
+        + compareTo(Docente altro) int
+        + equals(Object o) boolean
+        + hashCode() int
     }
 ```

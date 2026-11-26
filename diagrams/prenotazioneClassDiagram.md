@@ -38,6 +38,11 @@ classDiagram
         +isRicorrente() boolean
         +getIdSerie() String
 
+
+        + compareTo(Prenotazione altra) int
+        + equals(Object o) boolean
+        + hashCode() int
+
         
 
     }
