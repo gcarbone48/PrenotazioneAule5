@@ -27,6 +27,12 @@ classDiagram
         %% codice interno x controlli nostri
         
         %%Costruttore 
+
+        %% TODO:
+        %% FIX QUI PERCHE' idSerie ABBIAMO DETTO DI TOGLIERLO
+        %% NE PARLIAMO DOMANI IN AULA
+        %% VA MODIFICATO SOLO QUI?
+
         +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean isRicorrente, String idSerie) 
         +getAula() Aula
         +getDocente() Docente

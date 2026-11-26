@@ -19,7 +19,8 @@ classDiagram
         + aggiungiAula(Aula aula) EsitoAula
         %% modifica un'aula esistente gestendo anche l'eventuale cambio di ID
         + modificaAula(String vecchioId, String nuovoId, String nome, String edificio, String piano, int capienza) EsitoAula
-        %% rimuove un'aula tramite il suo id
+        %% rimuove un'aula tramite il suo id 
+        %%%%%%%%%%%% TODO: NON è MEGLIO PASSARE DUMMY OBJ AULA?     %%%%%%%%%%%%%%%%%%%%%%%%%%
         + rimuoviAula(String id) EsitoAula
         %% cerca e restituisce un'aula tramite il suo id
         + cercaAulaPerId(String id) Aula
