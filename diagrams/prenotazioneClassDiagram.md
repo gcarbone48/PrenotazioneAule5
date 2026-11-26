@@ -21,8 +21,9 @@ classDiagram
         - final LocalDate dataFine
         - final LocalTime oraInizio
         - final LocalTime oraFine
-        - final boolean isRicorrente
-        - final String idSerie 
+        - final boolean Ricorrente
+        - final String idSerie
+        - int counter$
         %% codice interno x controlli nostri
         
         %%Costruttore 
