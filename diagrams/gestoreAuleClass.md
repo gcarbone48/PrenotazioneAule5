@@ -1,17 +1,35 @@
 ```mermaid
 classDiagram
+
+
+    class Aula {
+        - String id
+        %% codice identificativo univoco
+        - String nome
+        - String edificio
+        - String piano
+        - int capienza
+    }
+
     class GestoreAule{
         - HashMap~String, Aula~ aule
+        %% costruttore
         + GestoreAule()
+        %% aggiunge un'aula verificando l'unicità dell'id e i valori nulli
         + aggiungiAula(Aula aula) EsitoAula
+        %% modifica un'aula esistente gestendo anche l'eventuale cambio di ID
         + modificaAula(String vecchioId, String nuovoId, String nome, String edificio, String piano, int capienza) EsitoAula
+        %% rimuove un'aula tramite il suo id
         + rimuoviAula(String id) EsitoAula
+        %% cerca e restituisce un'aula tramite il suo id
         + cercaAulaPerId(String id) Aula
-        + getTutteLeAule() Collection~Aula~
+        %% restituisce una collezione di tutte le aule registrate
+        + getTutteLeAule() Map~Aula~
+        %% restituisce una lista di aule filtrate per edificio
         + filtraPerEdificio(String edificio) List~Aula~
+        %% restituisce una lista di aule filtrate per capienza minima
         + filtraPerCapienzaMinima(int capienza) List~Aula~
-        + salvaSuFile(String percorso) void
-        + caricaDaFile(String percorso) void
+
     }
 
     class EsitoAula {
@@ -29,6 +47,7 @@ classDiagram
         %%metodo pubblico per accedere al testo descrittivo dell'esito
         + getMessaggio() String
     }
-    GestoreAule ..> ErroreAula : utilizza
+    GestoreAule "1" --> "*" Aula
+    GestoreAule ..> EsitoAula : utilizza
         
 ```
