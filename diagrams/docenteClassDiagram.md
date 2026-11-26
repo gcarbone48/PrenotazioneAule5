@@ -1,5 +1,16 @@
 ```mermaid
 classDiagram
+
+    class Serializable {
+              <<interface>>
+    }
+    class Comparable {
+              <<interface>>
+    }
+
+    Serializable <|.. Docente
+    Comparable <|.. Docente
+
     class Docente{
         - String email
         %% univoca      

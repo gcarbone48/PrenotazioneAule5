@@ -1,5 +1,12 @@
 ```mermaid
 classDiagram
+
+    class Serializable {
+             <<interface>>
+    }
+
+    Serializable <|.. Aula
+
     class Aula{
         - String id
         %% codice identificativo univoco

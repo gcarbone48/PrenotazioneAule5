@@ -1,5 +1,17 @@
 ```mermaid
 classDiagram
+
+    class Serializable {
+             <<interface>>
+    }
+    class Comparable {
+             <<interface>>
+    }
+
+    Serializable <|.. Prenotazione
+    Comparable <|.. Prenotazione
+
+
  class Prenotazione{
         - Aula aula
         - Docente docente
@@ -35,6 +47,8 @@ classDiagram
         +setRicorrente(boolean isRicorrente) void
         +getIdSerie() String
         +setIdSerie(String idSerie) void
+
+        
 
     }
 ```
