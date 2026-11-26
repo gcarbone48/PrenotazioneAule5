@@ -26,7 +26,7 @@ classDiagram
         %% codice interno x controlli nostri
         
         %%Costruttore 
-        +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean isRicorrente, String idSerie) Prenotazione
+        +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean isRicorrente, String idSerie) 
         +getAula() Aula
         +getDocente() Docente
         +getAttivita() TipoAttivita

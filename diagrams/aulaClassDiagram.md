@@ -14,7 +14,7 @@ classDiagram
         - String edificio
         - String piano
         - int capienza
-        + Aula(String id, String nome, String edificio, String piano, int capienza) Aula
+        + Aula(String id, String nome, String edificio, String piano, int capienza) 
         + getId() String
         + getNome() String
         + getEdificio() String

@@ -16,7 +16,7 @@ classDiagram
         %% univoca      
         - String nome
         - String cognome
-        + Docente(String email, String nome, String cognome) Docente
+        + Docente(String email, String nome, String cognome) 
         + getEmail() String
         + getNome() String
         + getCognome() String

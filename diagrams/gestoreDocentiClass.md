@@ -23,6 +23,7 @@ classDiagram
 
     class GestoreDocenti{
         - TreeSet~Docente~ docenti
+        + GestoreDocenti()
         %%restituisce l'esito dell'operazione
         + aggiungiDocente(Docente d) EsitoDocente
         %%restituisce l'esito della prenotazione
