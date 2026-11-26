@@ -49,7 +49,7 @@ classDiagram
         %% aula != null / docente != null --> filtra aula
         %% aula != null / docente != null --> filtra x entrambi
         %% aula == null / docente == null --> === visualizzaPrenotazioniDefault()
-        + filtraPrenotazioni(Aula aula, Docente docente) List~Prenotazione~
+        + filtraPrenotazioni(Aula a, Docente d) List~Prenotazione~
 
 
     }
@@ -64,11 +64,11 @@ classDiagram
         PRENOTAZIONE_INVALIDA 
         
         %% data e ora non valide
-        PRENOTAZIONE_DATA_ORA_NON_VALIDE
-
+        PRENOTAZIONE_DATA_NON_VALIDA
+        PRENOTAZIONE_ORA_NON_VALIDA
         %% aula o docente inesistente...
-        AULA_O_DOCENTE_INESISTENTE 
-        
+        AULA_INESISTENTE
+        DOCENTE_INESISTENTE
         %% aula occupata per l'occorrenza
         AULA_OCCUPATA
 

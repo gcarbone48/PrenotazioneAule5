@@ -27,7 +27,8 @@ classDiagram
         %% cerca e restituisce un'aula tramite il suo id
         + ricercaId(String id) Aula
         %% restituisce una collezione di tutte le aule registrate
-        + getAule() Map~Aula~
+        %% NON SAREBBE MEGLIO LISTA??
+        + getAule() Map~String, Aula~
         %% restituisce una lista di aule filtrate per edificio
         + filtraEdificio(String edificio) List~Aula~
         %% restituisce una lista di aule filtrate per capienza minima
@@ -48,6 +49,8 @@ classDiagram
         AULA_NULL
         %%attributo privato immutabile che memorizza il testo descrittivo dell'esito
         - String messaggio
+        %%costruttore
+        - EsitoAula(String messaggio)
         %%metodo pubblico per accedere al testo descrittivo dell'esito
         + getMessaggio() String
     }
