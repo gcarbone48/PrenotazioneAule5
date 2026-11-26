@@ -17,6 +17,8 @@ classDiagram
         EMAIL_DUPLICATA
         %%restituita se il docente passato è null
         DOCENTE_NULL
+        - String messaggio
+        + getMessaggio() String
     }
 
     class GestoreDocenti{
@@ -38,6 +40,6 @@ classDiagram
     }
 
     GestoreDocenti "1" --> "*" Docente
-    GestoreDocenti ..> EsitoDocente : usa
+    GestoreDocenti ..> EsitoDocente : utilizza
 ```
 
