@@ -23,11 +23,11 @@ classDiagram
 
     class GestoreDocenti{
         - TreeSet~Docente~ docenti
-        %%restituisce un booleano con l'esito dell'operazione
+        %%restituisce l'esito dell'operazione
         + aggiungiDocente(Docente d) EsitoDocente
-        %%restituisce l'oggetto rimosso
+        %%restituisce l'esito della prenotazione
         + rimuoviDocente (Docente d) EsitoDocente
-        %%modifica docente
+        %%restituisce l'esito dell'operazione
         + modificaDocente (Docente d, String nome, String cognome, String email) EsitoDocente
         %%restituisce una lista ordinata contenente i docenti
         + listaOrdinata () List~Docente~
