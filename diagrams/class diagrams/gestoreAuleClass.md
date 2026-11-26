@@ -22,14 +22,16 @@ classDiagram
         %% rimuove un'aula tramite il suo id 
         %%%%%%%%%%%% TODO: NON è MEGLIO PASSARE DUMMY OBJ AULA?     %%%%%%%%%%%%%%%%%%%%%%%%%%
         + rimuoviAula(String id) EsitoAula
+        %% facciamo overloading??
+        + rimuoviAula (Aula a) EsitoAula
         %% cerca e restituisce un'aula tramite il suo id
-        + cercaAulaPerId(String id) Aula
+        + ricercaId(String id) Aula
         %% restituisce una collezione di tutte le aule registrate
-        + getTutteLeAule() Map~Aula~
+        + getAule() Map~Aula~
         %% restituisce una lista di aule filtrate per edificio
-        + filtraPerEdificio(String edificio) List~Aula~
+        + filtraEdificio(String edificio) List~Aula~
         %% restituisce una lista di aule filtrate per capienza minima
-        + filtraPerCapienzaMinima(int capienza) List~Aula~
+        + filtraCapienza(int capienza) List~Aula~
 
         + toString() String
     }
