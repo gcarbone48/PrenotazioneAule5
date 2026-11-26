@@ -16,13 +16,10 @@ classDiagram
     }
 
     class GestorePrenotazioni{
-        - TreeMap~LocalDate, TreeSet~Prenotazione~~ prenotazioni
+        - TreeMap~LocalDate, TreeSet&lt;Prenotazione&gt;~ prenotazioni
         
         %% costruttore
         + GestorePrenotazioni()
-
-        %% getter
-        + getPrenotazioni() TreeMap~LocalDate, TreeSet~Prenotazione~~
         
         %% aggiunta prenotazione
         + aggiungiPrenotazione(Prenotazione p) EsitoPrenotazione

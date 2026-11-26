@@ -19,7 +19,6 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     private final LocalTime oraFine;
     private final boolean ricorrente;
     private final String idSerie;
-    private static int counter;
 
     public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
         this.aula = aula;
@@ -30,8 +29,19 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
         this.oraInizio = oraInizio;
         this.oraFine = oraFine;
         this.ricorrente = ricorrente;
-        counter++;
-        this.idSerie = "" + counter;
+        this.idSerie = "";
+    }
+
+    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente, String idSerie) {
+        this.aula = aula;
+        this.docente = docente;
+        this.attivita = attivita;
+        this.dataInizio = dataInizio;
+        this.dataFine = dataFine;
+        this.oraInizio = oraInizio;
+        this.oraFine = oraFine;
+        this.ricorrente = ricorrente;
+        this.idSerie = idSerie;
     }
 
     public Aula getAula() {
@@ -70,9 +80,6 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
         return idSerie;
     }
 
-    public static int getCounter() {
-        return counter;
-    }
 
     @Override
     public int hashCode() {
