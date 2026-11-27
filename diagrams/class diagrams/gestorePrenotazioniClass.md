@@ -11,7 +11,8 @@ classDiagram
         - final LocalTime oraInizio
         - final LocalTime oraFine
         - final boolean isRicorrente
-        - final String idSerie        
+        - final String idSerie     
+        - boolean scaduta
         %% codice interno x controlli nostri
     }
 

@@ -23,7 +23,8 @@ classDiagram
         - final LocalTime oraFine
         - final boolean Ricorrente
         - final String idSerie
-        
+        - boolean scaduta
+
         %%Costruttore 
 
         +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean isRicorrente, String idSerie) 
@@ -37,8 +38,8 @@ classDiagram
         +getOraFine() LocalTime
         +isRicorrente() boolean
         +getIdSerie() String
-
-
+        +isScaduta() boolean
+        +setScaduta() void
         + compareTo(Prenotazione altra) int
         + equals(Object o) boolean
         + hashCode() int
