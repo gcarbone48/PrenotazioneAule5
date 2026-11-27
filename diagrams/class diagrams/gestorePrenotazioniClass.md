@@ -18,7 +18,6 @@ classDiagram
         - final LocalTime oraFine
         - final boolean isRicorrente
         - final String idSerie     
-        - boolean scaduta
         %% codice interno x controlli nostri
     }
 
@@ -40,9 +39,9 @@ classDiagram
 
         %% rimuovi prenotazione per docente
         %% da utilizzare quando viene rimosso un docente
-        + rimuoviPrenotazioneDocente(Docente d) EsitoPrenotazione
+        + rimuoviPrenotazioniDocente(Docente d) EsitoPrenotazione
 
-        %% rimuovi prenotazioni scadute (da chiamare all'avvio PS2)
+        %% rimuovi prenotazioni scadute (da chiamare all'avvio PS3)
         + rimuoviPrenotazioniScadute() EsitoPrenotazione
 
         %% controllo aula disponibile 
@@ -53,7 +52,7 @@ classDiagram
         
         %% visualizzazione prenotazioni filtrate
         %% aula == null / docente != null --> filtra docente
-        %% aula != null / docente != null --> filtra aula
+        %% aula != null / docente == null --> filtra aula
         %% aula != null / docente != null --> filtra x entrambi
         %% aula == null / docente == null --> === visualizzaPrenotazioniDefault()
         + filtraPrenotazioni(Aula a, Docente d) List~Prenotazione~

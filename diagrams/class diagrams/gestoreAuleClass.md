@@ -30,9 +30,11 @@ classDiagram
         %% cerca e restituisce un'aula tramite il suo id
         + ricercaId(String id) Aula
         %% restituisce una collezione di tutte le aule registrate
+
         + getAule() List~Aula~
         %% restituisce una lista di aule filtrate per edificio
-        + filtraEdificio(String edificio) List~Aula~
+        + filtraNome(String nome) List~Aula~
+        + filtraCodice(String codice) List~Aula~
         %% restituisce una lista di aule filtrate per capienza minima
         + filtraCapienza(int capienza) List~Aula~
 
@@ -49,6 +51,9 @@ classDiagram
         ID_DUPLICATO
         %%restituita se l'aula passata è null
         AULA_NULL
+        DATI_NON_VALIDI
+        DATI_MANCANTI
+        CAPIENZA_NON_VALIDA
         %%attributo privato immutabile che memorizza il testo descrittivo dell'esito
         - String messaggio
         %%costruttore
