@@ -1,4 +1,4 @@
-package it.unisa.diem.se.prenotazioneaule5.managers;
+package it.unisa.diem.se.prenotazioneaule5.gestori;
 
 import it.unisa.diem.se.prenotazioneaule5.entities.Aula;
 import java.io.Serializable;
