@@ -9,7 +9,7 @@ package it.unisa.diem.oop.managers;
  *
  * @author marco
  */
-public enum EsitoTaskManager {
+public enum EsitoTm {
     
     
     SUCCESS("Operazione completata con successo."),
@@ -23,7 +23,7 @@ public enum EsitoTaskManager {
     private final String messaggio;
 
    
-    private EsitoTaskManager(String messaggio) {
+    private EsitoTm(String messaggio) {
         this.messaggio = messaggio;
     }
 
