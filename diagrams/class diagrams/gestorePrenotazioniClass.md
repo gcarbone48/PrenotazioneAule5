@@ -1,6 +1,12 @@
 ```mermaid
 classDiagram
 
+    class Serializable {
+             <<interface>>
+    }
+
+    Serializable <|.. GestorePrenotazioni
+
     class Prenotazione{
         - final Aula aula
         - final Docente docente

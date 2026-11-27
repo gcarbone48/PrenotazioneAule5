@@ -5,6 +5,8 @@ classDiagram
              <<interface>>
     }
 
+    Serializable <|.. Archivio
+
     class Archivio{
     - final GestoreAule gestoreAule
     - final GestoreDocenti gestoreDocenti
