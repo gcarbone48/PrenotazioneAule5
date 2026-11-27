@@ -37,6 +37,10 @@ public class Aula implements Serializable {
     public String getPiano() {
         return piano;
     }
+    
+    public String getNome(){
+        return nome;
+    }
 
     public int getCapienza() {
         return capienza;

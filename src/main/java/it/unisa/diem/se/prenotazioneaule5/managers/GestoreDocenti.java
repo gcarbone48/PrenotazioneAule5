@@ -40,7 +40,7 @@ public class GestoreDocenti implements Serializable{
         return null;
     }
     
-    public List<Docente> ricercEmail(String email){
+    public List<Docente> ricercaEmail(String email){
         return null;
     }
 
