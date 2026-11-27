@@ -1,5 +1,10 @@
 ```mermaid
 classDiagram
+    class Serializable {
+             <<interface>>
+    }
+
+    Serializable <|.. GestoreAule
 
 
     class Aula {

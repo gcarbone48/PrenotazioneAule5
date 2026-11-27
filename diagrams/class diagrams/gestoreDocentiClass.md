@@ -1,5 +1,11 @@
 ```mermaid
 classDiagram
+    class Serializable {
+             <<interface>>
+    }
+
+    Serializable <|.. GestoreDocenti 
+
     class Docente{
         - String email
         %% univoca      
