@@ -25,15 +25,12 @@ classDiagram
         %% modifica un'aula esistente gestendo anche l'eventuale cambio di ID
         + modificaAula(String vecchioId, String nuovoId, String nome, String edificio, String piano, int capienza) EsitoAula
         %% rimuove un'aula tramite il suo id 
-        %%%%%%%%%%%% TODO: NON è MEGLIO PASSARE DUMMY OBJ AULA?     %%%%%%%%%%%%%%%%%%%%%%%%%%
         + rimuoviAula(String id) EsitoAula
-        %% facciamo overloading??
         + rimuoviAula (Aula a) EsitoAula
         %% cerca e restituisce un'aula tramite il suo id
         + ricercaId(String id) Aula
         %% restituisce una collezione di tutte le aule registrate
-        %% NON SAREBBE MEGLIO LISTA??
-        + getAule() Map~String, Aula~
+        + getAule() List~Aula~
         %% restituisce una lista di aule filtrate per edificio
         + filtraEdificio(String edificio) List~Aula~
         %% restituisce una lista di aule filtrate per capienza minima
