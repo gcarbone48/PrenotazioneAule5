@@ -1,5 +1,5 @@
 
-package it.unisa.diem.oop.managers.eccezioni;
+package it.unisa.diem.se.prenotazioneaule5.managers.eccezioni;
 
 
 public class LetturaException extends PersistenzaException{
