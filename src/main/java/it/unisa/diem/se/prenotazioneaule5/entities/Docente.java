@@ -5,8 +5,8 @@
  */
 package it.unisa.diem.se.prenotazioneaule5.entities;
 
+import it.unisa.diem.se.prenotazioneaule5.exceptions.DatiNonValidiException;
 import java.io.Serializable;
-import java.util.Objects;
 
 
 public class Docente implements Serializable, Comparable<Docente> {
@@ -14,7 +14,7 @@ public class Docente implements Serializable, Comparable<Docente> {
     private String nome;
     private String cognome;
     
-    public Docente(String email, String nome, String cognome) {
+    public Docente(String email, String nome, String cognome) throws DatiNonValidiException /*da gestitre nel controller*/ {
         this.email = email;
         this.nome = nome;
         this.cognome = cognome;
