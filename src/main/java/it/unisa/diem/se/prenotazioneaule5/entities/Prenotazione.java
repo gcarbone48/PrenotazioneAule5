@@ -29,7 +29,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     private final String nomeAttivita;
    /** data di inizio della prenotazione (o della serie ricorrente) */
     private final LocalDate dataInizio;
-    /** data di fine della prenotazione (o termine della ricorrenza) */
+    /** data di termine della ricorrenza, se prenotazione non ricorrente dataFine = dataInizio */
     private final LocalDate dataFine;
    /** orario di inizio della prenotazione */
     private final LocalTime oraInizio;
@@ -50,19 +50,18 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
      * @param attivita tipologia dell'attività
      * @param nomeAttivita denominazione specifica dell'attività
      * @param dataInizio data di inizio della prenotazione
-     * @param dataFine data di fine della prenotazione
      * @param oraInizio orario di inizio dell'occupazione
      * @param oraFine orario di fine dell'occupazione
      * @param ricorrente valore booleano impostato a false per prenotazioni singole
      */
     
-    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita,  String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
+    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita,  String nomeAttivita, LocalDate dataInizio, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
         this.aula = aula;
         this.docente = docente;
         this.attivita = attivita;
         this.nomeAttivita = nomeAttivita;
         this.dataInizio = dataInizio;
-        this.dataFine = dataFine;
+        this.dataFine = dataInizio;
         this.oraInizio = oraInizio;
         this.oraFine = oraFine;
         this.ricorrente = ricorrente;
