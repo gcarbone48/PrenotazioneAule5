@@ -8,6 +8,7 @@ package it.unisa.diem.se.prenotazioneaule5.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.UUID;
 
 /**
  * @brief Rappresenta una prenotazione di un'aula universitaria gestita dal sistema.
@@ -15,6 +16,12 @@ import java.time.LocalTime;
  * Una prenotazione collega un'aula e un docente responsabile per una specifica attività,
  * definendo un intervallo temporale (data e fascia oraria) e supportando la gestione
  * delle ricorrenze settimanali tramite un identificativo di serie.
+ * Invarianti di classe:
+ * @invariant aula != null && docente != null && attivita != null
+ * @invariant dataInizio != null && dataFine != null && !dataFine.isBefore(dataInizio)
+ * @invariant oraInizio != null && oraFine != null && oraFine.isAfter(oraInizio)
+ * @invariant idSerie != null && !idSerie.isEmpty()
+ * @invariant !ricorrente implica dataFine.equals(dataInizio)
  */
 
 
@@ -42,49 +49,82 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
 
     
     /**
-     * @brief costruttore per una prenotazione singola (priva di ricorrenza).
-     * inizializza l'identificativo di serie come stringa vuota.
-     * 
+     * @brief Costruttore per una prenotazione singola o per la prima occorrenza
+     * di una serie ricorrente.
+     *
+     * Genera un nuovo identificativo di serie tramite {@code UUID.randomUUID()}
+     * (stringa casuale a 122 bit, non deterministica per evitare duplicati).
+     * Se ricorrente == true imposta dataFine al valore passato, altrimenti la 
+     * imposta uguale a dataInizio.
+     *
+     * @pre aula != null && docente != null && attivita != null
+     * @pre nomeAttivita != null && !nomeAttivita.isBlank()
+     * @pre dataInizio != null && oraInizio != null && oraFine != null
+     * @pre oraFine.isAfter(oraInizio)
+     * @pre !ricorrente || (dataFine != null && !dataFine.isBefore(dataInizio))
+     *
+     * @post isRicorrente() == ricorrente
+     * @post !isRicorrente() implica getDataFine().equals(getDataInizio())
+     * @post isRicorrente() implica getDataFine().equals(dataFine)
+     * @post getIdSerie() != null && !getIdSerie().isEmpty()
+     *
      * @param aula aula da prenotare
      * @param docente docente responsabile dell'attività
      * @param attivita tipologia dell'attività
      * @param nomeAttivita denominazione specifica dell'attività
-     * @param dataInizio data di inizio della prenotazione
+     * @param dataInizio data di inizio della prenotazione o della serie
+     * @param dataFine data di termine della serie (usata se {@code ricorrente} è {@code true})
      * @param oraInizio orario di inizio dell'occupazione
      * @param oraFine orario di fine dell'occupazione
-     * @param ricorrente valore booleano impostato a false per prenotazioni singole
+     * @param ricorrente indica se la prenotazione fa parte di una serie ricorrente
      */
     
-    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita,  String nomeAttivita, LocalDate dataInizio, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
+    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita,  String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
         this.aula = aula;
         this.docente = docente;
         this.attivita = attivita;
         this.nomeAttivita = nomeAttivita;
         this.dataInizio = dataInizio;
-        this.dataFine = dataInizio;
+        if (ricorrente)
+            this.dataFine = dataFine;
+        else
+            this.dataFine = dataInizio;
         this.oraInizio = oraInizio;
         this.oraFine = oraFine;
         this.ricorrente = ricorrente;
-        this.idSerie = "";
+        this.idSerie = UUID.randomUUID().toString();
     }
     
     /**
-     * @brief costruttore completo per una prenotazione associata a una serie ricorrente.
-     * 
+     * @brief Costruttore per un'occorrenza di una serie ricorrente con
+     * identificativo di serie già esistente.
+     *
+     * Imposta automaticamente ricorrente a true e associa l'identificativo 
+     * idSerie condiviso con la serie.
+     *
+     * @pre aula != null && docente != null && attivita != null
+     * @pre nomeAttivita != null && !nomeAttivita.isBlank()
+     * @pre dataInizio != null && dataFine != null && !dataFine.isBefore(dataInizio)
+     * @pre oraInizio != null && oraFine != null && oraFine.isAfter(oraInizio)
+     * @pre idSerie != null && !idSerie.isEmpty()
+     *
+     * @post isRicorrente() == true
+     * @post getDataFine().equals(dataFine)
+     * @post getIdSerie().equals(idSerie)
+     *
      * @param aula aula da prenotare
      * @param docente docente responsabile dell'attività
      * @param attivita tipologia dell'attività
      * @param nomeAttivita denominazione specifica dell'attività
-     * @param dataInizio data di inizio della serie ricorrente
+     * @param dataInizio data di inizio della prenotazione
      * @param dataFine data di termine della serie ricorrente
      * @param oraInizio orario di inizio delle singole occorrenze
      * @param oraFine orario di fine delle singole occorrenze
-     * @param ricorrente valore booleano impostato a true
-     * @param idSerie identificativo univoco (es. UUID) condiviso da tutte le occorrenze della serie
+     * @param idSerie identificativo univoco (es. UUID) condiviso dalla serie
      */
     
 
-    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente, String idSerie) {
+    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, String idSerie) {
         this.aula = aula;
         this.docente = docente;
         this.attivita = attivita;
@@ -93,7 +133,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
         this.dataFine = dataFine;
         this.oraInizio = oraInizio;
         this.oraFine = oraFine;
-        this.ricorrente = ricorrente;
+        this.ricorrente = true;
         this.idSerie = idSerie;
     }
 
@@ -180,7 +220,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     /**
      * @brief Restituisce l'identificativo univoco della serie di appartenenza.
      * 
-     * @return stringa idSerie (stringa vuota se la prenotazione è singola)
+     * @return stringa idSerie 
      */
 
     public String getIdSerie() {
@@ -198,10 +238,18 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     }
     
 /**
-     * @brief il metodo effettua un controllo su data e ora di fine,
+     * @brief il metodo effettua un controllo su data di inizio e ora di fine,
      * comparandole con la data e ora di esecuzione del metodo. Se la prenotazione
      * risulta scaduta, cioè se è terminata nel momento in cui si esegue il
-     * metodo (come definito nel SRS), il metodo restituisce true
+     * metodo (come definito nel SRS), il metodo restituisce true. 
+     * Il confronto avviene con dataInizio e oraFine perchè sia per prenotazione
+     * singola che per prenotazione ricorrente, dataInizio indica anche la data
+     * di fine della singola occorrenza
+     * @pre Nessuna
+     * 
+     * @post Restituisce true se (dataInizio, oraFine) è precedente al timestamp
+     * corrente, false altrimenti. Stato dell'oggetto invariato
+     * 
      * @return booleano che attesta se la prenotazione è scaduta
      */
     public boolean isScaduta(){
@@ -238,10 +286,14 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     /**
      * @brief relazione d'ordine tra due prenotazioni, basata su dataInizio,
      * oraInizio e idSerie
-     * @param o, prenotazione da comparare
-     * @return n minore di 0 se this precede o
+     * @param o prenotazione da comparare
+     * 
+     * @pre o != null
+     * @post   n minore di 0 se this precede o
      *         n maggiore di 0 se this segue o
      *         n = 0 se this e o sono uguali
+     * 
+     * @return intero n che esprime la relazione d'ordine
      */
     @Override
     public int compareTo(Prenotazione o) {
