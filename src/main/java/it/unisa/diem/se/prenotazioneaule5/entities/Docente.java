@@ -1,6 +1,7 @@
 package it.unisa.diem.se.prenotazioneaule5.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @class Docente
@@ -8,9 +9,9 @@ import java.io.Serializable;
  * Un docente possiede una email, che si configura come identificatore univoco,
  * un nome e un cognome.
  * 
- * @invariant @c email != null && email.matches ("^[^\\s\@]+\@unisa\\.it$")
- * @invariant @c nome != null && !nome.trim().isEmpty()
- * @invariant @c cognome != null && !cognome.trim().isEmpty()
+ * @invariant  email != null && email.matches ("^[^\\s\@]+\@unisa\\.it$")
+ * @invariant  nome != null && !nome.trim().isEmpty()
+ * @invariant  cognome != null && !cognome.trim().isEmpty()
  * 
  * 
  */
@@ -22,15 +23,12 @@ public class Docente implements Serializable, Comparable<Docente> {
     /** cognome del docente (es. Rossi) */
     private String cognome;
     
-<<<<<<< HEAD
-    public Docente(String email, String nome, String cognome)  {
-=======
     /**
      * @brief Crea un oggetto docente inizializzando gli attributi
      * 
-     * @pre @p email != null e conforme al formato istituzionale (@c \@unisa.it)
-     * @pre @p nome != null e stringa non vuota
-     * @pre @p cognome != null e stringa non vuota
+     * @pre email != null e conforme al formato istituzionale (\@unisa.it)
+     * @pre nome != null e stringa non vuota
+     * @pre cognome != null e stringa non vuota
      * 
      * @post Viene istanziato un nuovo oggetto Docente con i dati forniti.
      * 
@@ -39,7 +37,6 @@ public class Docente implements Serializable, Comparable<Docente> {
      * @param cognome cognome del docente
      */
     public Docente(String email, String nome, String cognome) {
->>>>>>> 1d05faa2ab250e43c2fc7bb201f689effa1ca30f
         this.email = email;
         this.nome = nome;
         this.cognome = cognome;
@@ -59,8 +56,8 @@ public class Docente implements Serializable, Comparable<Docente> {
     /**
      * @brief Imposta l'email associata al docente
      * 
-     * @pre @p email != null, non vuota e valida secondo il formato istituzionale
-     * @post L'attributo @c email del docente viene aggiornato con il nuovo valore
+     * @pre email != null, non vuota e valida secondo il formato istituzionale
+     * @post L'attributo email del docente viene aggiornato con il nuovo valore
      * 
      * 
      * @param email nuova email da associare al docente
@@ -85,8 +82,8 @@ public class Docente implements Serializable, Comparable<Docente> {
     /**
      * @brief Imposta o modifica il nome del docente
      * 
-     * @pre @p nome != null e stringa non vuota
-     * @post L'attributo @c nome del docente viene aggiornato
+     * @pre nome != null e stringa non vuota
+     * @post L'attributo nome del docente viene aggiornato
      * 
      * @param nome nuovo nome del docente
      * 
@@ -109,8 +106,8 @@ public class Docente implements Serializable, Comparable<Docente> {
     /**
      * @brief Imposta o modifica il cognome del docente.
      * 
-     * @pre @p cognome != null e stringa non vuota.
-     * @post L'attributo @c cognome del docente viene aggiornato.
+     * @pre cognome != null e stringa non vuota.
+     * @post L'attributo cognome del docente viene aggiornato.
      * 
      * @param cognome nuovo cognome del docente
      */
@@ -132,13 +129,13 @@ public class Docente implements Serializable, Comparable<Docente> {
     
     /**
      * @brief Confronta il docente con l'oggetto passato come parametro per verificarne l'uguaglianza
-     * Vengono considerati uguali se sono entrambi istanze di @c Docente e possiedono la stessa email (case-insensitive)
+     * Vengono considerati uguali se sono entrambi istanze di Docente e possiedono la stessa email (case-insensitive)
      * 
      * @pre Nessuna (gestisce internamente i controlli di tipo e nullità)
      * @post Lo stato dell'oggetto rimane invariato
      * 
      * @param o oggetto da confrontare
-     * @return @c true se i due oggetti rappresentano lo stesso docente, @c false altrimenti
+     * @return true se i due oggetti rappresentano lo stesso docente, false altrimenti
      */
     @Override
     public boolean equals(Object o) {
@@ -150,13 +147,13 @@ public class Docente implements Serializable, Comparable<Docente> {
      * L'ordinamento è lessicografico prima per cognome, poi per nome, 
      * e infine utilizzando l'email come criterio di spareggio
      * 
-     * @pre @p altro != null
+     * @pre altro != null
      * @post Lo stato dell'oggetto rimane invariato
      * 
      * @param altro docente con cui effettuare il confronto
-     * @return un intero negativo se @c this precede @c altro, 
+     * @return un intero negativo se this precede altro, 
      *         0 se i due docenti sono equivalenti per l'ordinamento,
-     *         un intero positivo se @c this segue @c altro
+     *         un intero positivo se this segue altro
      */
     @Override
     public int compareTo(Docente altro) {
