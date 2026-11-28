@@ -4,9 +4,9 @@ classDiagram
 
     namespace it.unisa.diem.se.prenotazioneaule5.managers {
         class TaskManager {
-            - final GestoreAule gestoreAule
-            - final GestoreDocenti gestoreDocenti
-            - final GestorePrenotazioni gestorePrenotazioni
+            -  GestoreAule gestoreAule
+            -  GestoreDocenti gestoreDocenti
+            -  GestorePrenotazioni gestorePrenotazioni
             - final String filePath
             + TaskManager(String filePath)
             + carica() EsitoTm
@@ -19,8 +19,17 @@ classDiagram
         }
 
         class FileManager {
-            + salvaArchivio(Object obj, String path)$ void
-            + caricaArchivio(String path)$ Object
+            - final String pathAule
+            - final String pathPrenotazioni
+            - final String pathDocenti
+            + FileManager(String path)
+            + salvaAule(GestoreAule ga) void
+            + salvaDocenti(GestoreDocenti gd) void
+            + salvaPrenotazioni(GestorePrenotazioni gp) void
+            + salvaTutto(GestoreAule ga, GestoreDocenti gd, GestorePrenotazioni gp) void
+            + caricaAule() GestoreAule
+            + caricaDocenti() GestoreDocenti
+            + caricaPrenotazioni() GestorePrenotazioni
         }
 
         class EsitoTm {

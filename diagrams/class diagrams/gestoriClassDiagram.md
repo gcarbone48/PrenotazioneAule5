@@ -8,8 +8,7 @@ classDiagram
         -Map~String, Aula~ aule
         +GestoreAule()
         +aggiungiAula(Aula aula) EsitoAula
-        +modificaAula(String vecchioId, String nuovoId, String nome, 
-            String edificio, String piano, int capienza) EsitoAula
+        +modificaAula(String vecchioId, String nuovoId, String nome, String edificio, String piano, int capienza) EsitoAula
         +rimuoviAula(Aula a) EsitoAula
         +ricercaId(String id) Aula
         +getAule() Map~String, Aula~
@@ -22,8 +21,7 @@ classDiagram
         +GestoreDocenti()
         +aggiungiDocente(Docente d) EsitoDocente
         +rimuoviDocente(Docente d) EsitoDocente
-        +modificaDocente(Docente d, String nome, String cognome, 
-            String email) EsitoDocente
+        +modificaDocente(Docente d, String nome, String cognome, String email) EsitoDocente
         +listaOrdinata() List~Docente~
         +ricercaCognome(String cognome) List~Docente~
         +ricercaEmail(String email) List~Docente~
@@ -37,8 +35,7 @@ classDiagram
         +rimuoviPrenotazioniAula(Aula a) EsitoPrenotazione
         +rimuoviPrenotazioniDocente(Docente d) EsitoPrenotazione
         +rimuoviPrenotazioniScadute() EsitoPrenotazione
-        +isAulaDisponibile(Aula a, LocalDate data, LocalTime inizio,
-                LocalTime fine) boolean
+        +isAulaDisponibile(Aula a, LocalDate data, LocalTime inizio, LocalTime fine) boolean
         +visualizzaPrenotazioniDefault() List~Prenotazione~
         +filtraPrenotazioni(Aula a, Docente d) List~Prenotazione~ 
     }

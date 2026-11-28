@@ -21,9 +21,9 @@ import java.util.List;
  * @author Giovanni
  */
 public class TaskManager implements Serializable{
-    private final GestoreAule gestoreAule;
-    private final GestoreDocenti gestoreDocenti;
-    private final GestorePrenotazioni gestorePrenotazioni;
+    private  GestoreAule gestoreAule;
+    private  GestoreDocenti gestoreDocenti;
+    private  GestorePrenotazioni gestorePrenotazioni;
     private final FileManager fileManager;
 
     public TaskManager(String path) {
@@ -120,3 +120,4 @@ public class TaskManager implements Serializable{
     
     
 }
+
