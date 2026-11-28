@@ -1,0 +1,33 @@
+```mermaid
+    classDiagram
+    
+    class Exception{
+
+    }
+
+    class PersistenzaException{
+        +PersistenzaException()
+        +PersistenzaException(String msg)
+    }
+
+    Exception <|-- PersistenzaException
+
+    class LetturaException{
+        +LetturaException()
+        +LetturaException(String msg)
+    }
+
+    class FormatoException{
+        +FormatoException()
+        +FormatoException(String msg)
+    }
+
+    class ScritturaException{
+        +ScritturaException()
+        +ScritturaException(String msg)
+    }
+
+    PersistenzaException <|-- LetturaException
+    PersistenzaException <|-- FormatoException
+    PersistenzaException <|-- ScritturaException
+```
