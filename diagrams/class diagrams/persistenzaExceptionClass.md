@@ -31,3 +31,4 @@
     PersistenzaException <|-- FormatoException
     PersistenzaException <|-- ScritturaException
 ```
+
