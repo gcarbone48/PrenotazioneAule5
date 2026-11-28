@@ -46,7 +46,7 @@ classDiagram
 
         %% controllo aula disponibile 
         + isAulaDisponibile(Aula a, LocalDate data, LocalTime inizio, LocalTime fine) boolean
-
+        + isDocenteDisponibile(Docente d, LocalDate data, LocalTime inizio, LocalTime fine) boolean
         %% visualizzazione prenotazioni di default (ordinamento per data e ora)
         + visualizzaPrenotazioniDefault() List~Prenotazione~
         
@@ -66,15 +66,6 @@ classDiagram
         %% esito corretto
         PRENOTAZIONE_OK
         
-        %% oggetto null
-        PRENOTAZIONE_INVALIDA 
-        
-        %% data e ora non valide
-        PRENOTAZIONE_DATA_NON_VALIDA
-        PRENOTAZIONE_ORA_NON_VALIDA
-        %% aula o docente inesistente...
-        AULA_INESISTENTE
-        DOCENTE_INESISTENTE
         %% aula occupata per l'occorrenza
         AULA_OCCUPATA
 

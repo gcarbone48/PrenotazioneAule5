@@ -52,7 +52,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
      * @brief Costruttore per una prenotazione singola o per la prima occorrenza
      * di una serie ricorrente.
      *
-     * Genera un nuovo identificativo di serie tramite {@code UUID.randomUUID()}
+     * Genera un nuovo identificativo di serie tramite UUID.randomUUID()
      * (stringa casuale a 122 bit, non deterministica per evitare duplicati).
      * Se ricorrente == true imposta dataFine al valore passato, altrimenti la 
      * imposta uguale a dataInizio.
@@ -61,7 +61,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
      * @pre nomeAttivita != null && !nomeAttivita.isBlank()
      * @pre dataInizio != null && oraInizio != null && oraFine != null
      * @pre oraFine.isAfter(oraInizio)
-     * @pre !ricorrente || (dataFine != null && !dataFine.isBefore(dataInizio))
+     * @pre !ricorrente || (dataFine != null && dataFine.isAfter(dataInizio))
      *
      * @post isRicorrente() == ricorrente
      * @post !isRicorrente() implica getDataFine().equals(getDataInizio())
@@ -73,7 +73,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
      * @param attivita tipologia dell'attività
      * @param nomeAttivita denominazione specifica dell'attività
      * @param dataInizio data di inizio della prenotazione o della serie
-     * @param dataFine data di termine della serie (usata se {@code ricorrente} è {@code true})
+     * @param dataFine data di termine della serie (usata se ricorrente è true)
      * @param oraInizio orario di inizio dell'occupazione
      * @param oraFine orario di fine dell'occupazione
      * @param ricorrente indica se la prenotazione fa parte di una serie ricorrente

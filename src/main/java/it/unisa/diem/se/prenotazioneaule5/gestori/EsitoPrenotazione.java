@@ -8,11 +8,6 @@ package it.unisa.diem.se.prenotazioneaule5.gestori;
 
 public enum EsitoPrenotazione {
     PRENOTAZIONE_OK("Operazione Riuscita"),
-    PRENOTAZIONE_INVALIDA("Prenotazione non valida"),
-    PRENOTAZIONE_DATA_NON_VALIDA("Data inserita non valida"),
-    PRENOTAZIONE_ORA_NON_VALIDA("Ora inserita non valida"),
-    AULA_INESISTENTE("L'aula inserita non è presente nel sistema"),
-    DOCENTE_INESISTENTE("Il docente inserito non è presente nel sistema"),
     AULA_OCCUPATA("Aula occupata nella fascia oraria richiesta"),
     DOCENTE_OCCUPATO("Docente occupato nella fascia oraria richiesta"),
     PRENOTAZIONE_INESISTENTE("La prenotazione richiesta non è presente nel sistema");

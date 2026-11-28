@@ -16,6 +16,13 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+/**
+ * @brief rappresenta la collezione di oggetti Prenotazione presenti nel sistema
+ * La collezione è implementata come innesto due una TreeMap e un TreeSet.
+ * La chiave della mappa è la LocalDate dataInizio. 
+ * Invarianti di classe:
+ * @invariant prenotazioni != null
+ */
 
 public class GestorePrenotazioni implements Serializable{
     Map<LocalDate, TreeSet<Prenotazione>>  prenotazioni;
@@ -24,6 +31,16 @@ public class GestorePrenotazioni implements Serializable{
         prenotazioni = new TreeMap<>();
     }
     
+    /**
+     * @brief il metodo verifica che la prenotazione sia valida e la aggiunge
+     * alla collezione
+     * @pre p != null 
+     * @post Se this.isAulaDisponibile() == true && 
+     * this.isDocenteDisponibile() == true
+     * @param p
+     * @return EsitoPrenotazione, enum che traduce l'esito dell'operazione
+     * con un messaggio testuale
+     */
     public EsitoPrenotazione aggiungiPrenotazione(Prenotazione p){
         return EsitoPrenotazione.PRENOTAZIONE_OK;
     }
@@ -45,6 +62,11 @@ public class GestorePrenotazioni implements Serializable{
     }
     
     public boolean isAulaDisponibile(Aula a, LocalDate data, LocalTime inizio,
+                LocalTime fine){
+        return false;
+    }
+    
+    public boolean isDocenteDisponibile(Aula a, LocalDate data, LocalTime inizio,
                 LocalTime fine){
         return false;
     }
