@@ -13,6 +13,7 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     private final Aula aula;
     private final Docente docente;
     private final TipoAttivita attivita;
+    private final String nomeAttivita;
     private final LocalDate dataInizio;
     private final LocalDate dataFine;
     private final LocalTime oraInizio;
@@ -20,10 +21,11 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
     private final boolean ricorrente;
     private final String idSerie;
 
-    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
+    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita,  String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) {
         this.aula = aula;
         this.docente = docente;
         this.attivita = attivita;
+        this.nomeAttivita = nomeAttivita;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.oraInizio = oraInizio;
@@ -32,10 +34,11 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
         this.idSerie = "";
     }
 
-    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente, String idSerie) {
+    public Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente, String idSerie) {
         this.aula = aula;
         this.docente = docente;
         this.attivita = attivita;
+        this.nomeAttivita = nomeAttivita;
         this.dataInizio = dataInizio;
         this.dataFine = dataFine;
         this.oraInizio = oraInizio;
@@ -80,6 +83,13 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
         return idSerie;
     }
 
+    public String getNomeAttivita() {
+        return nomeAttivita;
+    }
+
+    public boolean isScaduta(){
+        return false;
+    }
 
     @Override
     public int hashCode() {
