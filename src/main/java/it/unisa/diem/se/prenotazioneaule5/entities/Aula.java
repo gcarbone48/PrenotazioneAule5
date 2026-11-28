@@ -5,7 +5,6 @@
  */
 package it.unisa.diem.se.prenotazioneaule5.entities;
 
-import it.unisa.diem.se.prenotazioneaule5.exceptions.DatiNonValidiException;
 import java.io.Serializable;
 
 /**
@@ -19,7 +18,7 @@ public class Aula implements Serializable {
     private String piano;
     private int capienza;
 
-    public Aula(String id, String nome, String edificio, String piano, int capienza) throws DatiNonValidiException /*da gestitre nel controller*/{
+    public Aula(String id, String nome, String edificio, String piano, int capienza) {
         this.id = id;
         this.nome = nome;
         this.edificio = edificio;
