@@ -197,48 +197,52 @@ public class Prenotazione implements Serializable, Comparable<Prenotazione>{
         return nomeAttivita;
     }
     
-    /**
-     * @brief Verifica se la prenotazione è temporalmente scaduta rispetto all'istante attuale.
-     * 
-     * @return true se la data e l'ora di fine sono antecedenti o uguali all'istante corrente, false altrimenti
+/**
+     * @brief il metodo effettua un controllo su data e ora di fine,
+     * comparandole con la data e ora di esecuzione del metodo. Se la prenotazione
+     * risulta scaduta, cioè se è terminata nel momento in cui si esegue il
+     * metodo (come definito nel SRS), il metodo restituisce true
+     * @return booleano che attesta se la prenotazione è scaduta
      */
-
     public boolean isScaduta(){
         return false;
     }
-    
-    /**
-     * @brief Calcola il codice hash della prenotazione.
-     * 
-     * @return valore intero dell'hash code
-     */
 
+    /**
+     * @brief Calcola il codice hash della prenotazione su dataInizio, oraInizio
+     * e idSerie
+     * In questo modo due prenotazioni sono diverse se:
+     * 1) hanno id diverso
+     * 2) hanno id uguale ma cadono in giorni diversi (serie)
+     * @return Valore hash della prenotazione.
+     */
     @Override
     public int hashCode() {
         return 0;
     }
 
     /**
-     * @brief Confronta la prenotazione con l'oggetto passato come parametro per verificarne l'uguaglianza.
-     * 
+     * @brief Verifica se due prenotazioni sono uguali sulla base di
+     * dataInizio, oraInizio e idSerie
+     * In questo modo due prenotazioni sono diverse se:
+     * 1) hanno id diverso
+     * 2) hanno id uguale ma cadono in giorni diversi (serie)
      * @param obj oggetto da confrontare
-     * @return true se i due oggetti rappresentano la stessa prenotazione, false altrimenti
+     * @return true se sono uguali, false se diverse
      */
-    
     @Override
     public boolean equals(Object obj) {
         return false;
     }
     
     /**
-     * @brief Confronta due prenotazioni per determinarne l'ordinamento cronologico standard.
-     * L'ordinamento primario è basato sulla data e sull'ora di inizio crescenti,
-     * con criterio secondario basato sull'ordine lessicografico del codice dell'aula.
-     * 
-     * @param o prenotazione con cui effettuare il confronto
-     * @return un intero negativo se this precede o, zero se coincidono, un intero positivo se this segue o
+     * @brief relazione d'ordine tra due prenotazioni, basata su dataInizio,
+     * oraInizio e idSerie
+     * @param o, prenotazione da comparare
+     * @return n minore di 0 se this precede o
+     *         n maggiore di 0 se this segue o
+     *         n = 0 se this e o sono uguali
      */
-    
     @Override
     public int compareTo(Prenotazione o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
