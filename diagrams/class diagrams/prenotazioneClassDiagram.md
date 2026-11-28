@@ -4,7 +4,7 @@ classDiagram
     class Serializable {
              <<interface>>
     }
-    class Comparable {
+    class Comparable~Prenotazione~{
              <<interface>>
     }
 
@@ -21,13 +21,13 @@ classDiagram
         - final LocalDate dataFine
         - final LocalTime oraInizio
         - final LocalTime oraFine
-        - final boolean Ricorrente
+        - final boolean ricorrente
         - final String idSerie
-        - boolean scaduta
 
         %%Costruttore 
 
-        +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean isRicorrente, String idSerie) 
+        +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente) 
+        +Prenotazione(Aula aula, Docente docente, TipoAttivita attivita, String nomeAttivita, LocalDate dataInizio, LocalDate dataFine, LocalTime oraInizio, LocalTime oraFine, boolean ricorrente, String idSerie) 
         +getAula() Aula
         +getDocente() Docente
         +getAttivita() TipoAttivita
@@ -39,11 +39,10 @@ classDiagram
         +isRicorrente() boolean
         +getIdSerie() String
         +isScaduta() boolean
-        +setScaduta() void
         + compareTo(Prenotazione altra) int
         + equals(Object o) boolean
         + hashCode() int
-        + toString()
+        + toString() String
         
 
     }

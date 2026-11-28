@@ -4,7 +4,7 @@ classDiagram
     class Serializable {
               <<interface>>
     }
-    class Comparable {
+    class Comparable~Docente~{
               <<interface>>
     }
 

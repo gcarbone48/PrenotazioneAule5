@@ -1,10 +1,22 @@
 ```mermaid
 classDiagram
 
+    class EsitoTm{
+        <<enumeration>>
+        SUCCESS
+        ERRORE_IO
+        ERRORE_SALVATAGGIO
+        ERRORE_CARICAMENTO
+        DATI_NON_VALIDI
+        -String messaggio
+        -EsitoTm(String messaggio)
+        +getMessaggio() String
+    }
+
     class TaskManager{
-    - final GestoreAule gestoreAule
-    - final GestoreDocenti gestoreDocenti
-    - final GestorePrenotazioni gestorePrenotazioni
+    - GestoreAule gestoreAule
+    - GestoreDocenti gestoreDocenti
+    - GestorePrenotazioni gestorePrenotazioni
     - final FileManager fileManager
     
     %% path è il percorso del fileManager
